@@ -1,82 +1,39 @@
-# 🎓 Academic Advisor Expert System
+# 🎵 Singer Recommendation Expert System
 
-> A Rule-Based Expert System built with Python and `experta` to help students choose their college major.
+A Rule-Based Expert System developed using Python that acts as a digital music consultant. The system analyzes user preferences (genre, tempo, era, etc.) to recommend the most suitable singer from a knowledge base of over 90 Egyptian and American artists.
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![Library](https://img.shields.io/badge/Library-Experta-green) ![Type](https://img.shields.io/badge/Type-Rule--Based-orange)
+## 💡 Project Idea
+The main idea behind this project is to simulate the reasoning of a human music critic. Instead of randomly searching for songs, the user provides specific criteria defining their current mood or taste. The system then uses **Artificial Intelligence (Logic-Based Approach)** to match these inputs against a set of predefined rules to infer the perfect singer match.
 
-## 📖 Overview
-This project is an **Academic Advisor**. Instead of using traditional procedural programming (nested `if-else` statements), it uses a **Rule-Based Expert System** approach.
+## 🚀 Key Features
+- **Interactive GUI:** User-friendly interface built with Tkinter for easy data entry.
+- **Visual Results:** Displays not just the name, but also a photo of the recommended singer.
+- **Smart Inference:** Uses a Forward Chaining inference engine to navigate through ~96 logic rules.
+- **Dual Input Mode:** Supports GUI inputs with a fallback to Console inputs if data is missing.
+- **Customizable UI:** Supports background images for a better user experience.
 
-The system mimics a human counselor by:
-1.  Asking the user about their interests, favorite subjects, and skills.
-2.  Matching these "Facts" against a set of predefined "Rules" using an Inference Engine.
-3.  Recommending the most suitable College Major.
+## 🛠️ Technologies & Libraries Used
+The project is built entirely in **Python** using the following libraries:
 
-## 🧠 How It Works (The Logic)
-This system utilizes the **Rete Algorithm** (via the `experta` library) to perform pattern matching.
+| Library | Purpose |
+| :--- | :--- |
+| **Experta** | The core Knowledge Engine (Rule-Based System library for Python). |
+| **Tkinter** | Used for building the Graphical User Interface (GUI). |
+| **Pillow (PIL)** | Used for image processing (handling background and singer photos). |
+| **Collections** | patched for Python 3.10+ compatibility. |
 
-### The Decision Logic
-The recommendations are based on the following Knowledge Base:
+## ⚙️ How It Works (Working Method)
+The system follows the **Forward Chaining** methodology of Expert Systems:
 
-| User Interest | Strongest Subject | Key Skill | **Recommended Major** |
-| :--- | :--- | :--- | :--- |
-| Technology | Math | Logic/Problem Solving | **Computer Science** |
-| Design/Art | Drawing/Physics | Creativity | **Architecture** |
-| Helping People | Biology | Analysis | **Medical Field** |
-| Business | Math | Leadership | **Business Administration** |
-
-### Code Structure
-* **Facts:** The inputs provided by the user (e.g., `Fact(interest='tech')`).
-* **Rules:** The logic gates decorated with `@Rule`. They trigger automatically when facts match.
-* **Engine:** The `KnowledgeEngine` that runs the inference cycle.
-
-## 🛠️ Prerequisites
-* Python 3.x installed.
-* `experta` library.
-
-## 🚀 Installation & Setup
-
-1.  **Clone the Repository**
-    ```bash
-    git clone [https://github.com/YOUR_USERNAME/Academic-Advisor-System.git](https://github.com/YOUR_USERNAME/Academic-Advisor-System.git)
-    cd Academic-Advisor-System
-    ```
-
-2.  **Install Dependencies**
-    ```bash
-    pip install experta
-    ```
-
-## 💻 Usage
-
-1.  Run the main script:
-    ```bash
-    python main.py
-    ```
-
-2.  Follow the on-screen prompts.
-    * *Example Interaction:*
-    ```text
-    --- 🎓 Welcome to the AI Academic Advisor 🎓 ---
-    
-    Q1: What are you most interested in? [technology, design, helping_people]
-    > technology
-    
-    Q2: What is your strongest subject? [math, biology, drawing]
-    > math
-    
-    Q3: What is your best soft skill? [logic, creativity]
-    > logic
-    
-    ✅ Recommendation: Computer Science (CS)
-       Reason: You have a logical mind and love technology.
-    ```
+1.  **Fact Gathering:** The system starts by collecting "Facts" from the user via the GUI (e.g., *Century: 21st*, *Tempo: Fast*, *Nationality: Egyptian*).
+2.  **Pattern Matching:** The Inference Engine monitors the "Knowledge Base". It checks if the current set of facts matches the conditions (LHS) of any defined Rule.
+3.  **Rule Firing:** Once a rule's conditions are met (e.g., *IF Egyptian AND Modern AND Fast AND Romance*), the rule "fires".
+4.  **Action/Conclusion:** The system declares a new fact (The Singer's Name) and triggers the result window to display the name and photo.
 
 ## 📂 Project Structure
-
 ```text
-Academic-Advisor-System/
-│
-├── main.py            # The source code containing the Engine, Rules, and UI
-├── README.md          # Project documentation (This file)
-└── requirements.txt   # List of dependencies
+├── main.py              # The main source code
+├── background.jpg       # The background image for the main menu
+├── README.md            # Project documentation
+├── requirements.txt     # List of dependencies
+└── [Singer Name].jpg    # Images for each singer (e.g., Amr Diab.jpg, Adele.jpg)
